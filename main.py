@@ -8,4 +8,11 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    myHashTable = HashTable.HashTable(10)
+    myHashTable = HashTable.HashTable(50)
+
+    myHashTable.set_val('gfg@example.com', '23')
+    print(myHashTable)
+
+    myHashTable.set_val('portal@example.com', '200')
+    print(myHashTable)
+

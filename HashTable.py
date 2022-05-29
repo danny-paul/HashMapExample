@@ -33,3 +33,37 @@ class HashTable:
         else:
             bucket.append((key, value))
 
+    def get_val(self, key):
+        hash_key = hash(key) % self.size
+
+        bucket = self.hash_table[hash_key]
+
+        found_key = False
+        for index, record in enumerate(bucket):
+            record_key, record_val = record
+            if (record_key == key):
+                found_key = True
+                break
+
+        if found_key:
+            return record_val
+        else:
+            return "Record not found"
+
+    def del_val(self, key):
+        hash_key = hash(key) % self.size
+        bucket = self.hash_table[hash_key]
+
+        found_key = False
+        for index, record in enumerate(bucket):
+            record_key, record_val = record
+            if record_key == key:
+                found_key = True
+                break
+
+        if found_key:
+            bucket.pop(index)
+        return
+
+    def __str__(self):
+        return "".join(str(item) for item in self.hash_table)
